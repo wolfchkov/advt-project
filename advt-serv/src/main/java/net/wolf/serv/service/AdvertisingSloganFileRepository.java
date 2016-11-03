@@ -8,6 +8,7 @@ package net.wolf.serv.service;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class AdvertisingSloganFileRepository implements AdvertisingSloganReposit
     public AdvertisingSloganFileRepository() throws IOException {
         Resource resource = new ClassPathResource("/advs-slogans.txt");
         
-        try (BufferedReader br = new BufferedReader(new FileReader(resource.getFile()));) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(resource.getInputStream()));) {
         
             slogans = new ArrayList<>();
             
